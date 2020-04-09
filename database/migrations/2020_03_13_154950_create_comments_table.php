@@ -19,6 +19,7 @@ class CreateCommentsTable extends Migration
             $table->foreignId('profile_id')->constrained();
             $table->foreignId('image_id')->constrained();
             $table->timestamps();
+            $table->engine = 'InnoDB';
         });
     }
 

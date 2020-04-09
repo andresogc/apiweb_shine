@@ -15,12 +15,24 @@ class CreateProfilesTable extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
+            $table->string('foto')->nullable();
             $table->integer('mobile')->unique();
-            $table->enum('state', ['Activo', 'Inactivo']);
+            $table->string('estado_sentimental');
+            $table->integer('estatura');
+            $table->string('complexion');
+            $table->string('hijos')->nullable();
+            $table->string('idioma');
+            $table->string('profesion');
+            $table->enum('alcohol',['Si','No'])->default('No');
+            $table->enum('fuma',['Si','No'])->default('No');
+            $table->text('hobbie');
+            $table->enum('practica_deporte',['Si','No'])->default('No');
+            $table->string('deporte_favorito')->nullabel();
             $table->text('description');
-            $table->string('plan',30);
+            $table->string('plan',30)->nullable();
             $table->foreignId('user_id')->constrained();
             $table->timestamps();
+            $table->engine = 'InnoDB';
         });
     }
 

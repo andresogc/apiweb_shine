@@ -18,11 +18,27 @@ use Illuminate\Support\Facades\Route;
     return $request->user();
 }); */
 
+    Route::post('login', 'API\UserController@login');
+    Route::post('register', 'API\UserController@register');
+    Route::get('email_validate/{email}', 'API\UserController@getEmail');
+    
 
-Route::post('login', 'API\UserController@login');
-Route::post('register', 'API\UserController@register');
-Route::get('email_validate/{email}', 'API\UserController@getEmail');
+    Route::group(['middleware' => 'auth:api'], function(){
+        Route::post('details', 'API\UserController@details');
 
-Route::group(['middleware' => 'auth:api'], function(){
-    Route::post('details', 'API\UserController@details');
-});
+        ////// PROFILE
+        Route::get('profile','API\ProfileController@index');
+        ///// Create
+        Route::post('create','API\ProfileController@create');
+        //// Update
+        Route::post('update','API\ProfileController@update');
+
+
+        ////// IMAGES
+        Route::get('images','API\ImageController@index');
+        //// Create
+        Route::post('subir_imagen','API\ImageController@create');
+        /// GetImage
+        Route::get('image/{nombreFoto}','API\ImageController@getImage');
+
+    });

@@ -20,6 +20,7 @@ class CreateDetailsTable extends Migration
             $table->foreignId('order_id')->constrained();
             $table->foreignId('product_id')->constrained();
             $table->timestamps();
+            $table->engine = 'InnoDB';
         });
     }
 

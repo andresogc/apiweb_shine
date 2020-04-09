@@ -17,6 +17,7 @@ class CreateGendersTable extends Migration
             $table->id();
             $table->string('gender');
             $table->timestamps();
+            $table->engine = 'InnoDB';
         });
     }
 

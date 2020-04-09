@@ -20,6 +20,7 @@ class CreateCouplesTable extends Migration
             $table->foreignId('user_id')->constrained();
             $table->foreignId('profile_id')->constrained();
             $table->timestamps();
+            $table->engine = 'InnoDB';
         });
     }
 

@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->text('description');
             $table->decimal('price',8,2);
             $table->timestamps();
+            $table->engine = 'InnoDB';
         });
     }
 

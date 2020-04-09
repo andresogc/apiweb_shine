@@ -18,6 +18,7 @@ class CreatePermissionRolesTable extends Migration
             $table->foreignId('role_id')->constrained();
             $table->foreignId('permission_id')->constrained();
             $table->timestamps();
+            $table->engine = 'InnoDB';
         });
     }
 

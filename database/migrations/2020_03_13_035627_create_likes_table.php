@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOrdersTable extends Migration
+class CreateLikesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateOrdersTable extends Migration
      */
     public function up()
     {
-        Schema::create('orders', function (Blueprint $table) {
+        Schema::create('likes', function (Blueprint $table) {
             $table->id();
-            $table->decimal('tax',4,2);
-            $table->decimal('total',11,2);
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('images_id')->constrained();
+            $table->foreignId('profiles_id')->constrained();
+            $table->bigInteger('likes');
             $table->timestamps();
-            $table->engine = 'InnoDB';
         });
     }
 
@@ -30,6 +29,6 @@ class CreateOrdersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orders');
+        Schema::dropIfExists('likes');
     }
 }

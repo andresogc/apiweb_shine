@@ -19,6 +19,7 @@ class CreateMessagesTable extends Migration
             $table->foreignId('user_id')->constrained();
             $table->foreignId('chat_id')->constrained();
             $table->timestamps();
+            $table->engine = 'InnoDB';
         });
     }
 

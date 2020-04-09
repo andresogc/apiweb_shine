@@ -19,6 +19,7 @@ class CreateImagesTable extends Migration
             $table->text('description');
             $table->foreignId('profile_id')->constrained();
             $table->timestamps();
+            $table->engine = 'InnoDB';
         });
     }
 
