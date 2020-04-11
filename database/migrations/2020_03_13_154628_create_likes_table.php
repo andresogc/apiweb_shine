@@ -15,8 +15,8 @@ class CreateLikesTable extends Migration
     {
         Schema::create('likes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('images_id')->constrained();
-            $table->foreignId('profiles_id')->constrained();
+            $table->foreignId('image_id')->constrained();
+            $table->foreignId('profile_id')->constrained();
             $table->timestamps();
         });
     }
