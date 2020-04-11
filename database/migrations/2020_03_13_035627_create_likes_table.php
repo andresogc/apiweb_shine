@@ -17,7 +17,6 @@ class CreateLikesTable extends Migration
             $table->id();
             $table->foreignId('images_id')->constrained();
             $table->foreignId('profiles_id')->constrained();
-            $table->bigInteger('likes');
             $table->timestamps();
         });
     }
